@@ -13,7 +13,8 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"test:e2e": "playwright test",
-		"test": "npm run test:e2e"
+		"test": "npm run test:e2e",
+		"list": "bun pm ls"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.9",
@@ -39,6 +40,6 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-js": "^2.0.13",
-		"svelte-motion": "^0.12.2"
+		"gsap": "^3.13.0"
 	}
 }
