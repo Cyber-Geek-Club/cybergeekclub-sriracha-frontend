@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 
 export function setupNavbarAnimation() {
 	const tl = gsap.timeline({ paused: true });
+	addMouseFollowAnimation();
 
 	tl.from('#navbar', {
 		duration: 1,
