@@ -3,7 +3,7 @@
 	import logo from '../lib/asset/LOGO_CGC WHITE@5000x.png';
 </script>
 
-<div class="relative flex min-h-screen flex-col bg-[#0C1410] font-sans text-white">
+<div class="relative flex min-h-screen flex-col font-sans text-white">
 	<div class="flex flex-1 flex-col items-center justify-center px-4 text-center">
 		<!-- <button class="mb-4 rounded-full bg-white/10 px-4 py-1 text-xs transition hover:bg-white/20">
 			Lorem ipsum dolor sit amet →
@@ -39,7 +39,7 @@
 		class="pointer-events-none absolute -bottom-60 left-[5%] h-70 w-[90%] bg-radial-[at_50%_75%] from-[#38FF7E] to-transparent opacity-50 blur-3xl"
 	></div>
 </div>
-<div class="h-screen bg-[#0C1410]"></div>
+
 
 <style>
 	.gradient-bg {
