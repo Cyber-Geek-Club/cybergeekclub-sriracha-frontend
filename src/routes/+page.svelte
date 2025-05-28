@@ -1,3 +1,4 @@
+
 <script lang="ts">
 	import logo from '../lib/asset/LOGO_CGC WHITE@5000x.png';
 </script>

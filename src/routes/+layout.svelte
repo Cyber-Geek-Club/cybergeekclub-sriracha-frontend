@@ -5,8 +5,11 @@
 	let { children } = $props();
 </script>
 
-<div class="grid min-h-screen grid-rows-[100px_1fr_100px]">
+<div class="grid min-h-screen grid-rows-[140px_1fr_100px]">
 	<Navbar />
 	{@render children()}
-	<!-- <div class="bg-green-500"></div> -->
+	<footer class="flex items-center justify-center bg-gray-800 text-white">
+		<p>&copy; 2023 CyberGeekClub. All rights reserved.</p>
+	</footer>
+
 </div>

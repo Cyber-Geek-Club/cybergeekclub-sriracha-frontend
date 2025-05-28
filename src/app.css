@@ -1,1 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 @import 'tailwindcss';
+
+
+@theme {
+    --font-kanit: "Kanit", sans-serif;
+    --color-primary: #030A06;
+    --color-text: #E3FFED;
+}
+
+
+
+
+body {
+    @apply bg-primary text-text font-kanit;
+}
