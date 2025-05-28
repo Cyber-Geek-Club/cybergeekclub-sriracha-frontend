@@ -8,5 +8,5 @@
 <div class="grid min-h-screen grid-rows-[100px_1fr_100px]">
 	<Navbar />
 	{@render children()}
-	<div class="bg-green-500"></div>
+	<!-- <div class="bg-green-500"></div> -->
 </div>
