@@ -11,4 +11,5 @@
 	<footer class="flex items-center justify-center bg-gray-800 text-white">
 		<p>&copy; 2023 CyberGeekClub. All rights reserved.</p>
 	</footer>
+
 </div>

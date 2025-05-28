@@ -9,7 +9,7 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
-
+/project.inlang
 # OS
 .DS_Store
 Thumbs.db
