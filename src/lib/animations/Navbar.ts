@@ -91,7 +91,7 @@ export function addMouseFollowAnimation() {
 		gsap.to(cursor, {
 			duration: 0.3,
 			x: Math.max(-10, Math.min(10, (x - container.clientWidth / 2) * 0.1)),
-			y: y - cursor.offsetHeight / 2,
+			y: Math.max(-10, Math.min(10, (y - container.clientHeight / 2) * 0.1)),
 			ease: 'power2.out'
 		});
 	};
