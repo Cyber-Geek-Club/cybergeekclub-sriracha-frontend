@@ -10,7 +10,7 @@
 </script>
 
 <div class="relative flex min-h-screen flex-col font-sans">
-	<div class=" flex flex-1 flex-col items-center justify-center px-4 text-center">
+	<div class=" flex flex-1 flex-col items-center justify-center overflow-hidden px-4 text-center">
 		<!-- <button class="mb-4 rounded-full bg-white/10 px-4 py-1 text-xs transition hover:bg-white/20">
 			Lorem ipsum dolor sit amet →
 		</button> -->

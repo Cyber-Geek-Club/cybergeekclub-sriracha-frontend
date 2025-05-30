@@ -2,6 +2,7 @@
 	import '../app.css';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import dayjs from 'dayjs';
+
 	/**
 	 * current year for copyright
 	 */
@@ -11,7 +12,7 @@
 </script>
 
 <div
-	class="grid max-h-screen min-h-screen snap-y snap-mandatory grid-rows-[140px_1fr] overflow-y-scroll"
+	class="max-h-screen min-h-screen snap-y snap-mandatory overflow-y-scroll md:grid md:grid-rows-[140px_1fr]"
 >
 	<Navbar />
 	{@render children()}

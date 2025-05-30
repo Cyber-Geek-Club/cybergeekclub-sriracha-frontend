@@ -108,3 +108,65 @@ export function addMouseFollowAnimation() {
 	container.addEventListener('mousemove', handleMouseMove);
 	container.addEventListener('mouseleave', handleMouseLeave);
 }
+
+export function mobileNavbarAnimation() {
+	const menuIconClose = document.querySelector('.menu-icon-close') as HTMLElement;
+	const menuIconOpen = document.querySelector('.menu-icon-open') as HTMLElement;
+	const navbar = document.querySelector('#navbar') as HTMLElement;
+
+	if (!menuIconClose || !menuIconOpen || !navbar) return;
+	function isMobileByWidth() {
+		console.log('Checking if mobile by width:', window.innerWidth);
+		return window.innerWidth < 768;
+	}
+
+	window.addEventListener('resize', () => {
+		if (isMobileByWidth()) {
+			gsap.set('#navbar', {
+				x: '-100vw',
+				overflow: 'visible'
+			});
+		} else {
+			gsap.set('#navbar', {
+				x: 0,
+				overflow: 'hidden'
+			});
+		}
+	});
+
+	if (isTouchDevice()) {
+		gsap.set('#navbar', {
+			x: '-100vw',
+			overflow: 'visible'
+		});
+	} else {
+		gsap.set('#navbar', {
+			x: 0,
+			overflow: 'hidden'
+		});
+	}
+	menuIconOpen.addEventListener('click', () => {
+		gsap.to('#navbar', {
+			duration: 0.5,
+			x: 0,
+			ease: 'power2.inOut',
+			onStart: () => {
+				navbar.style.overflow = 'hidden';
+			}
+		});
+	});
+	menuIconClose.addEventListener('click', () => {
+		gsap.to('#navbar', {
+			duration: 0.5,
+			x: '-100vw',
+			ease: 'power2.inOut',
+			onComplete: () => {
+				navbar.style.overflow = 'visible';
+			}
+		});
+	});
+}
+
+export function isTouchDevice() {
+	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
