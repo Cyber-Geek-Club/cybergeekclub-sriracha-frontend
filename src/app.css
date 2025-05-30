@@ -1,16 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 @import 'tailwindcss';
 
-
 @theme {
-    --font-kanit: "Kanit", sans-serif;
-    --color-primary: #030A06;
-    --color-text: #E3FFED;
+	--font-kanit: 'Kanit', sans-serif;
+	--color-primary: #030a06;
+	--color-text: #e3ffed;
+  --color-custom-green: #38FF7E;
+  --color-custom-dark-green: #244A32;
 }
 
-
-
-
 body {
-    @apply bg-primary text-text font-kanit;
+	@apply bg-primary text-text font-kanit;
+}
+
+/* ความกว้าง scrollbar */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px; /* สำหรับ scrollbar แนวนอน */
+}
+
+/* ราง (track) */
+::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 6px;
+}
+
+/* ปุ่มเลื่อน (thumb) */
+::-webkit-scrollbar-thumb {
+	background-color: var(--color-custom-green);
+	border-radius: 6px;
+	border: 3px solid var(--color-custom-dark-green);
+}
+
+/* เมื่อ hover ที่ thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-custom-dark-green);
+  border: 3px solid var(--color-custom-green);
 }
