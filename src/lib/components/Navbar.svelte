@@ -2,23 +2,24 @@
 	import {
 		setupNavbarAnimation,
 		mobileNavbarAnimation,
-		isTouchDevice
+		isMobileByWidth
 	} from '$lib/animations/Navbar';
 	import { setupBasicClickAnimationWithHover } from '../animations/BasicAnimations';
 	import { onMount } from 'svelte';
 	import GradientBg from './gradientBG.svelte';
 	import logo from '../asset/LOGO_CGC WHITE@5000x.png';
 	import { Menu } from 'lucide-svelte';
+	let isLoading = $state(true);
 	onMount(() => {
 		setupBasicClickAnimationWithHover();
-		if (!isTouchDevice()) {
-			setupNavbarAnimation().play();
-		}
 		mobileNavbarAnimation();
 	});
 </script>
 
-<nav id="navbar" class="absolute z-50 flex w-full md:sticky md:top-5 md:my-5 md:justify-center">
+<nav
+	id="navbar"
+	class="absolute z-50 flex hidden w-full md:sticky md:top-5 md:my-5 md:justify-center"
+>
 	<div
 		class="bg-primary/85 relative flex h-[calc(100vh)] w-[calc(100vw-40px)] flex-col items-center justify-around border border-[#182D1F] md:h-[100px] md:flex-row md:rounded-3xl"
 	>

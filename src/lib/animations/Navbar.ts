@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { onMount } from 'svelte';
 
 export function setupNavbarAnimation() {
 	const tl = gsap.timeline({ paused: true });
@@ -115,10 +116,6 @@ export function mobileNavbarAnimation() {
 	const navbar = document.querySelector('#navbar') as HTMLElement;
 
 	if (!menuIconClose || !menuIconOpen || !navbar) return;
-	function isMobileByWidth() {
-		console.log('Checking if mobile by width:', window.innerWidth);
-		return window.innerWidth < 768;
-	}
 
 	window.addEventListener('resize', () => {
 		if (isMobileByWidth()) {
@@ -134,17 +131,23 @@ export function mobileNavbarAnimation() {
 		}
 	});
 
-	if (isTouchDevice()) {
-		gsap.set('#navbar', {
-			x: '-100vw',
-			overflow: 'visible'
-		});
-	} else {
-		gsap.set('#navbar', {
-			x: 0,
-			overflow: 'hidden'
-		});
-	}
+	onMount(() => {
+		navbar.classList.remove('hidden');
+		if (isMobileByWidth()) {
+			gsap.set('#navbar', {
+				x: '-100vw',
+				overflow: 'visible'
+			});
+			console.log('Mobile navbar animation initialized');
+		} else {
+			gsap.set('#navbar', {
+				x: 0,
+				overflow: 'hidden'
+			});
+			setupNavbarAnimation().play();
+		}
+	});
+
 	menuIconOpen.addEventListener('click', () => {
 		gsap.to('#navbar', {
 			duration: 0.5,
@@ -169,4 +172,8 @@ export function mobileNavbarAnimation() {
 
 export function isTouchDevice() {
 	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
+export function isMobileByWidth() {
+	return window.innerWidth < 768;
 }

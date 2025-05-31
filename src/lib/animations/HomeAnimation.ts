@@ -105,6 +105,6 @@ export function setupHomeHoverAnimation() {
 		repeat: -1,
 		yoyo: true
 	});
-	
+
 	return tl;
 }
