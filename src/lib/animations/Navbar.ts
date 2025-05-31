@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { onMount } from 'svelte';
 
 export function setupNavbarAnimation() {
 	const tl = gsap.timeline({ paused: true });
@@ -107,4 +108,72 @@ export function addMouseFollowAnimation() {
 
 	container.addEventListener('mousemove', handleMouseMove);
 	container.addEventListener('mouseleave', handleMouseLeave);
+}
+
+export function mobileNavbarAnimation() {
+	const menuIconClose = document.querySelector('.menu-icon-close') as HTMLElement;
+	const menuIconOpen = document.querySelector('.menu-icon-open') as HTMLElement;
+	const navbar = document.querySelector('#navbar') as HTMLElement;
+
+	if (!menuIconClose || !menuIconOpen || !navbar) return;
+
+	window.addEventListener('resize', () => {
+		if (isMobileByWidth()) {
+			gsap.set('#navbar', {
+				x: '-100vw',
+				overflow: 'visible'
+			});
+		} else {
+			gsap.set('#navbar', {
+				x: 0,
+				overflow: 'hidden'
+			});
+		}
+	});
+
+	onMount(() => {
+		navbar.classList.remove('hidden');
+		if (isMobileByWidth()) {
+			gsap.set('#navbar', {
+				x: '-100vw',
+				overflow: 'visible'
+			});
+			console.log('Mobile navbar animation initialized');
+		} else {
+			gsap.set('#navbar', {
+				x: 0,
+				overflow: 'hidden'
+			});
+			setupNavbarAnimation().play();
+		}
+	});
+
+	menuIconOpen.addEventListener('click', () => {
+		gsap.to('#navbar', {
+			duration: 0.5,
+			x: 0,
+			ease: 'power2.inOut',
+			onStart: () => {
+				navbar.style.overflow = 'hidden';
+			}
+		});
+	});
+	menuIconClose.addEventListener('click', () => {
+		gsap.to('#navbar', {
+			duration: 0.5,
+			x: '-100vw',
+			ease: 'power2.inOut',
+			onComplete: () => {
+				navbar.style.overflow = 'visible';
+			}
+		});
+	});
+}
+
+export function isTouchDevice() {
+	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
+export function isMobileByWidth() {
+	return window.innerWidth < 768;
 }

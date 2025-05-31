@@ -40,6 +40,8 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-js": "^2.0.13",
-		"gsap": "^3.13.0"
+		"dayjs": "^1.11.13",
+		"gsap": "^3.13.0",
+		"lucide-svelte": "^0.511.0"
 	}
 }
